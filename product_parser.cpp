@@ -6,7 +6,7 @@
 #include "movie.h"
 #include "util.h"
 using namespace std;
-
+Movie* test;
 
 ProductParser::ProductParser()
 {
@@ -130,7 +130,8 @@ std::string ProductBookParser::categoryID()
  */
 Product* ProductBookParser::makeProduct()
 {
-
+  Product* prod = new Book(prodName_, price_, qty_, isbn_, author_);
+  return prod;
 
 }
 
@@ -185,9 +186,8 @@ std::string ProductClothingParser::categoryID()
  */
 Product* ProductClothingParser::makeProduct()
 {
-
-
-
+  Product* prod = new Clothing(prodName_, price_, qty_, size_, brand_);
+  return prod;
 }
 
 
@@ -245,6 +245,6 @@ std::string ProductMovieParser::categoryID()
  */
 Product* ProductMovieParser::makeProduct()
 {
-
-
+  Product* prod = new Movie(prodName_, price_, qty_, genre_, rating_);
+  return prod;
 }
